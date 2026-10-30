@@ -1,25 +1,41 @@
 name: ci
+
+# The shared Day library workflow (daybrite/actions' daylib.yml) reads what to check from this
+# repository's manifests: clippy and test on Linux, macOS and Windows, clippy for the mobile and web
+# targets demo/Day.toml declares, and the demo's walkthrough on every one of them. A version tag
+# publishes the crate once the host and cross-target checks pass.
 on:
   push:
     branches: ["**"]
+    tags: ["v[0-9]+.[0-9]+.[0-9]+*"]
   pull_request:
   workflow_dispatch:
+    inputs:
+      day-main:
+        description: Build against day's main branch instead of the newest release
+        type: boolean
+        default: false
   schedule:
     - cron: "0 6 * * *"
+
 permissions:
   contents: read
+
 jobs:
   ci:
     uses: daybrite/actions/.github/workflows/daylib.yml@v1
     permissions:
-      contents: write
-      pages: write
-      id-token: write
+      contents: write # the demo's release assets on a version tag
+      pages: write # the project website
+      id-token: write # crates.io Trusted Publishing, and the Pages deploy
     secrets: inherit
     with:
-      # Requires the accompanying HTTP DAV-method additions in Day main.
-      day-deps: main
-      publish: false
+      day-main: ${{ inputs.day-main || false }}
+      # The DAV methods are on day's main branch only until the next day release, so every run but
+      # a version tag builds against main. A tag builds against crates.io, as the published crate
+      # will. Once that release is out, delete this line: the default ("auto") then gives the
+      # nightly run the newest release as well.
+      day-deps: ${{ startsWith(github.ref, 'refs/tags/') && 'published' || 'main' }}
       targets: all
       scripts: dayscript/demo.yaml
       feature-sets: --features reqwest,demo-server

@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 # Sourced from demo/ by the standard Day workflow; native apps host their own fixture.
 if [[ "${DAY_SCRIPT_TARGET:-}" == "web-dom" ]]; then
-  (cd .. && cargo build --target-dir target --features demo-server --example fixture_server)
+  # Built from demo/ so the demo's `.cargo/config.toml` patch table (day-deps: main) applies to the
+  # crate too: Cargo reads config from the working directory, not the manifest's.
+  cargo build --manifest-path ../Cargo.toml --target-dir ../target --features demo-server --example fixture_server
   ../target/debug/examples/fixture_server > "${RUNNER_TEMP:-/tmp}/day-webdav-fixture.log" 2>&1 &
   day_webdav_fixture_pid=$!
   trap 'kill "$day_webdav_fixture_pid" 2>/dev/null || true; wait "$day_webdav_fixture_pid" 2>/dev/null || true' EXIT

@@ -3,9 +3,8 @@
 MPL-2.0 WebDAV foundation over `day-part-http`, created with `day new part`.
 The library is headless; **[WebDAV Explorer](demo/README.md)** is its conventional Day demo.
 
-This is an initial implementation, not a released synchronization engine. It requires the accompanying
-DAV method additions in Day's `day-part-http`. Before publishing, release that dependency and raise
-its minimum version here. CI currently follows Day main; publication is disabled.
+This is an early release of a transport layer, not a synchronization engine, and its API may still
+change. It needs `day-part-http` 0.6.3 or later, the first release with the DAV methods.
 
 ## Scope
 

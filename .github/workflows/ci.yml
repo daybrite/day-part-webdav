@@ -31,11 +31,6 @@ jobs:
     secrets: inherit
     with:
       day-main: ${{ inputs.day-main || false }}
-      # The DAV methods are on day's main branch only until the next day release, so every run but
-      # a version tag builds against main. A tag builds against crates.io, as the published crate
-      # will. Once that release is out, delete this line: the default ("auto") then gives the
-      # nightly run the newest release as well.
-      day-deps: ${{ startsWith(github.ref, 'refs/tags/') && 'published' || 'main' }}
       targets: all
       scripts: dayscript/demo.yaml
       feature-sets: --features reqwest,demo-server

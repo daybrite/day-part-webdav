@@ -17,8 +17,8 @@ reqwest = ["day-part-http/reqwest"]
 demo-server = []
 
 [dependencies]
-# Requires the DAV method additions in Day; use day patch --local ../day during development.
-day-part-http = "0.6"
+# 0.6.3 is the first release with the DAV methods (PROPFIND, MKCOL, COPY, MOVE, ...).
+day-part-http = "0.6.3"
 day-async = "0.6"
 url = "2"
 percent-encoding = "2"

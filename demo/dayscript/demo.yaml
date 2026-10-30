@@ -1,0 +1,43 @@
+# Real socket traffic: native first, then reqwest where day-part-http supports it.
+# No HTTP interception in this app. The web target uses scripts/ci-fixture.sh.
+flow:
+  - wait_for: { id: nav }
+  - navigate: { route: connection }
+  - tap: { id: use_fixture }
+  - select: { id: http_provider, index: 0, skip_on: [web-dom, harmony-arkui] }
+  - tap: { id: run_checks }
+  - assert_text: { id: operation_status, key: smoke_ok, timeout_secs: 60 }
+  - screenshot: native-protocol
+  - navigate: { route: response }
+  - assert_visible: { id: response_details }
+  - screenshot: native-response
+
+  - navigate: { route: connection }
+  - select: { id: http_provider, index: 1, skip_on: [web-dom, harmony-arkui] }
+  - tap: { id: run_checks, skip_on: [web-dom, harmony-arkui] }
+  - assert_text: { id: operation_status, key: smoke_ok, timeout_secs: 60, skip_on: [web-dom, harmony-arkui] }
+  - screenshot: { name: reqwest-protocol, skip_on: [web-dom, harmony-arkui] }
+
+  # Admission control must avoid sending the request at all.
+  - toggle: { id: constrained_network, value: true }
+  - tap: { id: server_options }
+  - assert_text: { id: operation_status, key: status_deferred }
+  - toggle: { id: constrained_network, value: false }
+  - tap: { id: server_options }
+  - assert_text: { id: operation_status, key: status_ok, timeout_secs: 30 }
+
+  - navigate: { route: browser }
+  - input: { id: resource_path, text: "" }
+  - tap: { id: list_resources }
+  - assert_text: { id: operation_status, key: status_ok, timeout_secs: 30 }
+  - assert_visible: { id: resource_list }
+  - screenshot: resources
+  - tap: { id: slow_request }
+  - wait_for: { id: cancel_operation }
+  - tap: { id: cancel_operation }
+  - assert_text: { id: operation_status, key: status_cancelled }
+  - navigate: { route: connection }
+  - select: { id: http_provider, index: 0, skip_on: [web-dom, harmony-arkui] }
+  - navigate: { route: settings/general }
+  - wait_for: { id: language_picker }
+  - screenshot: settings

@@ -1,0 +1,34 @@
+[package]
+name = "day-part-webdav"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.89"
+description = "Bounded, namespace-aware WebDAV over Day's native HTTP stacks"
+repository = "https://github.com/daybrite/day-part-webdav"
+license = "MPL-2.0"
+exclude = ["scripts/__pycache__/**"]
+
+[package.metadata.day]
+compat = "0.6"
+
+[features]
+default = []
+reqwest = ["day-part-http/reqwest"]
+demo-server = []
+
+[dependencies]
+# Requires the DAV method additions in Day; use day patch --local ../day during development.
+day-part-http = "0.6"
+day-async = "0.6"
+url = "2"
+percent-encoding = "2"
+roxmltree = "0.21"
+httpdate = "1"
+
+[dev-dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+futures-lite = "2"
+base64 = "0.22"
+
+[workspace]

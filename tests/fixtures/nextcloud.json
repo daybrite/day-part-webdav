@@ -1,0 +1,435 @@
+{
+  "server": "nextcloud",
+  "version": "34.0.5",
+  "base_url": "http://127.0.0.1:18443/remote.php/dav/files/day_fixture/day-webdav-fixture-8689fa891ac14d5fb08b9e8610ecc0dc/",
+  "fixture_only": true,
+  "captured_at": "2026-10-27T19:09:04Z",
+  "redaction": "Authorization, cookies and non-protocol headers omitted; bodies are synthetic server responses",
+  "cases": [
+    {
+      "label": "options",
+      "method": "OPTIONS",
+      "relative": "",
+      "request_headers": {},
+      "request_body": "",
+      "status": 200,
+      "response_headers": [
+        [
+          "allow",
+          "OPTIONS, GET, HEAD, DELETE, PROPFIND, PUT, PROPPATCH, COPY, MOVE, REPORT, LOCK, UNLOCK"
+        ],
+        [
+          "dav",
+          "1, 3, extended-mkcol, access-control, calendarserver-principal-property-search, nc-paginate, nextcloud-checksum-update, nc-calendar-search, nc-enable-birthday-calendar, 2"
+        ],
+        [
+          "content-length",
+          "0"
+        ],
+        [
+          "content-type",
+          "text/html; charset=UTF-8"
+        ]
+      ],
+      "body": ""
+    },
+    {
+      "label": "mkcol",
+      "method": "MKCOL",
+      "relative": "items/",
+      "request_headers": {},
+      "request_body": "",
+      "status": 201,
+      "response_headers": [
+        [
+          "content-length",
+          "0"
+        ],
+        [
+          "content-type",
+          "text/html; charset=UTF-8"
+        ]
+      ],
+      "body": ""
+    },
+    {
+      "label": "put",
+      "method": "PUT",
+      "relative": "items/caf%C3%A9%20+%20100%25.bin",
+      "request_headers": {
+        "If-None-Match": "*",
+        "Content-Type": "application/octet-stream"
+      },
+      "request_body": "c3ludGhldGljIGRhdiBwYXlsb2FkAP8=",
+      "status": 201,
+      "response_headers": [
+        [
+          "content-length",
+          "0"
+        ],
+        [
+          "etag",
+          "\"e8f48ef219921ae8be6dd4e03419711c\""
+        ],
+        [
+          "content-type",
+          "text/html; charset=UTF-8"
+        ]
+      ],
+      "body": ""
+    },
+    {
+      "label": "propfind",
+      "method": "PROPFIND",
+      "relative": "items/",
+      "request_headers": {
+        "Depth": "1",
+        "Content-Type": "application/xml; charset=utf-8"
+      },
+      "request_body": "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48ZDpwcm9wZmluZCB4bWxuczpkPSJEQVY6Ij48ZDpwcm9wPjxkOnJlc291cmNldHlwZS8+PGQ6Z2V0ZXRhZy8+PGQ6Z2V0Y29udGVudGxlbmd0aC8+PGQ6Z2V0bGFzdG1vZGlmaWVkLz48ZDpkaXNwbGF5bmFtZS8+PGQ6c3VwcG9ydGVkLXJlcG9ydC1zZXQvPjwvZDpwcm9wPjwvZDpwcm9wZmluZD4=",
+      "status": 207,
+      "response_headers": [
+        [
+          "dav",
+          "1, 3, extended-mkcol, access-control, calendarserver-principal-property-search, nc-paginate, nextcloud-checksum-update, nc-calendar-search, nc-enable-birthday-calendar, 2"
+        ],
+        [
+          "content-length",
+          "2299"
+        ],
+        [
+          "content-type",
+          "application/xml; charset=utf-8"
+        ]
+      ],
+      "body": "PD94bWwgdmVyc2lvbj0iMS4wIj8+CjxkOm11bHRpc3RhdHVzIHhtbG5zOmQ9IkRBVjoiIHhtbG5zOnM9Imh0dHA6Ly9zYWJyZWRhdi5vcmcvbnMiIHhtbG5zOm9jPSJodHRwOi8vb3duY2xvdWQub3JnL25zIiB4bWxuczpuYz0iaHR0cDovL25leHRjbG91ZC5vcmcvbnMiPjxkOnJlc3BvbnNlPjxkOmhyZWY+L3JlbW90ZS5waHAvZGF2L2ZpbGVzL2RheV9maXh0dXJlL2RheS13ZWJkYXYtZml4dHVyZS04Njg5ZmE4OTFhYzE0ZDVmYjA4YjllODYxMGVjYzBkYy9pdGVtcy88L2Q6aHJlZj48ZDpwcm9wc3RhdD48ZDpwcm9wPjxkOnJlc291cmNldHlwZT48ZDpjb2xsZWN0aW9uLz48L2Q6cmVzb3VyY2V0eXBlPjxkOmdldGV0YWc+JnF1b3Q7NmFlMGY2YjkwZTQ2YiZxdW90OzwvZDpnZXRldGFnPjxkOmdldGxhc3Rtb2RpZmllZD5UdWUsIDI3IE9jdCAyMDI2IDE5OjA4OjQxIEdNVDwvZDpnZXRsYXN0bW9kaWZpZWQ+PGQ6ZGlzcGxheW5hbWU+aXRlbXM8L2Q6ZGlzcGxheW5hbWU+PGQ6c3VwcG9ydGVkLXJlcG9ydC1zZXQ+PGQ6c3VwcG9ydGVkLXJlcG9ydD48ZDpyZXBvcnQ+PGQ6ZXhwYW5kLXByb3BlcnR5Lz48L2Q6cmVwb3J0PjwvZDpzdXBwb3J0ZWQtcmVwb3J0PjxkOnN1cHBvcnRlZC1yZXBvcnQ+PGQ6cmVwb3J0PjxkOnByaW5jaXBhbC1tYXRjaC8+PC9kOnJlcG9ydD48L2Q6c3VwcG9ydGVkLXJlcG9ydD48ZDpzdXBwb3J0ZWQtcmVwb3J0PjxkOnJlcG9ydD48ZDpwcmluY2lwYWwtcHJvcGVydHktc2VhcmNoLz48L2Q6cmVwb3J0PjwvZDpzdXBwb3J0ZWQtcmVwb3J0PjxkOnN1cHBvcnRlZC1yZXBvcnQ+PGQ6cmVwb3J0PjxkOnByaW5jaXBhbC1zZWFyY2gtcHJvcGVydHktc2V0Lz48L2Q6cmVwb3J0PjwvZDpzdXBwb3J0ZWQtcmVwb3J0PjxkOnN1cHBvcnRlZC1yZXBvcnQ+PGQ6cmVwb3J0PjxvYzpmaWx0ZXItY29tbWVudHMvPjwvZDpyZXBvcnQ+PC9kOnN1cHBvcnRlZC1yZXBvcnQ+PGQ6c3VwcG9ydGVkLXJlcG9ydD48ZDpyZXBvcnQ+PG9jOmZpbHRlci1maWxlcy8+PC9kOnJlcG9ydD48L2Q6c3VwcG9ydGVkLXJlcG9ydD48L2Q6c3VwcG9ydGVkLXJlcG9ydC1zZXQ+PC9kOnByb3A+PGQ6c3RhdHVzPkhUVFAvMS4xIDIwMCBPSzwvZDpzdGF0dXM+PC9kOnByb3BzdGF0PjxkOnByb3BzdGF0PjxkOnByb3A+PGQ6Z2V0Y29udGVudGxlbmd0aC8+PC9kOnByb3A+PGQ6c3RhdHVzPkhUVFAvMS4xIDQwNCBOb3QgRm91bmQ8L2Q6c3RhdHVzPjwvZDpwcm9wc3RhdD48L2Q6cmVzcG9uc2U+PGQ6cmVzcG9uc2U+PGQ6aHJlZj4vcmVtb3RlLnBocC9kYXYvZmlsZXMvZGF5X2ZpeHR1cmUvZGF5LXdlYmRhdi1maXh0dXJlLTg2ODlmYTg5MWFjMTRkNWZiMDhiOWU4NjEwZWNjMGRjL2l0ZW1zL2NhZiVjMyVhOSUyMCUyYiUyMDEwMCUyNS5iaW48L2Q6aHJlZj48ZDpwcm9wc3RhdD48ZDpwcm9wPjxkOnJlc291cmNldHlwZS8+PGQ6Z2V0ZXRhZz4mcXVvdDtlOGY0OGVmMjE5OTIxYWU4YmU2ZGQ0ZTAzNDE5NzExYyZxdW90OzwvZDpnZXRldGFnPjxkOmdldGNvbnRlbnRsZW5ndGg+MjM8L2Q6Z2V0Y29udGVudGxlbmd0aD48ZDpnZXRsYXN0bW9kaWZpZWQ+VHVlLCAyNyBPY3QgMjAyNiAxOTowODo0MSBHTVQ8L2Q6Z2V0bGFzdG1vZGlmaWVkPjxkOmRpc3BsYXluYW1lPmNhZsOpICsgMTAwJS5iaW48L2Q6ZGlzcGxheW5hbWU+PGQ6c3VwcG9ydGVkLXJlcG9ydC1zZXQ+PGQ6c3VwcG9ydGVkLXJlcG9ydD48ZDpyZXBvcnQ+PGQ6ZXhwYW5kLXByb3BlcnR5Lz48L2Q6cmVwb3J0PjwvZDpzdXBwb3J0ZWQtcmVwb3J0PjxkOnN1cHBvcnRlZC1yZXBvcnQ+PGQ6cmVwb3J0PjxkOnByaW5jaXBhbC1tYXRjaC8+PC9kOnJlcG9ydD48L2Q6c3VwcG9ydGVkLXJlcG9ydD48ZDpzdXBwb3J0ZWQtcmVwb3J0PjxkOnJlcG9ydD48ZDpwcmluY2lwYWwtcHJvcGVydHktc2VhcmNoLz48L2Q6cmVwb3J0PjwvZDpzdXBwb3J0ZWQtcmVwb3J0PjxkOnN1cHBvcnRlZC1yZXBvcnQ+PGQ6cmVwb3J0PjxkOnByaW5jaXBhbC1zZWFyY2gtcHJvcGVydHktc2V0Lz48L2Q6cmVwb3J0PjwvZDpzdXBwb3J0ZWQtcmVwb3J0PjxkOnN1cHBvcnRlZC1yZXBvcnQ+PGQ6cmVwb3J0PjxvYzpmaWx0ZXItY29tbWVudHMvPjwvZDpyZXBvcnQ+PC9kOnN1cHBvcnRlZC1yZXBvcnQ+PGQ6c3VwcG9ydGVkLXJlcG9ydD48ZDpyZXBvcnQ+PG9jOmZpbHRlci1maWxlcy8+PC9kOnJlcG9ydD48L2Q6c3VwcG9ydGVkLXJlcG9ydD48L2Q6c3VwcG9ydGVkLXJlcG9ydC1zZXQ+PC9kOnByb3A+PGQ6c3RhdHVzPkhUVFAvMS4xIDIwMCBPSzwvZDpzdGF0dXM+PC9kOnByb3BzdGF0PjwvZDpyZXNwb25zZT48L2Q6bXVsdGlzdGF0dXM+Cg=="
+    },
+    {
+      "label": "get",
+      "method": "GET",
+      "relative": "items/caf%C3%A9%20+%20100%25.bin",
+      "request_headers": {},
+      "request_body": "",
+      "status": 200,
+      "response_headers": [
+        [
+          "last-modified",
+          "Tue, 27 Oct 2026 19:08:41 GMT"
+        ],
+        [
+          "etag",
+          "\"e8f48ef219921ae8be6dd4e03419711c\""
+        ],
+        [
+          "content-length",
+          "23"
+        ],
+        [
+          "content-type",
+          "application/x-bin"
+        ]
+      ],
+      "body": "c3ludGhldGljIGRhdiBwYXlsb2FkAP8="
+    },
+    {
+      "label": "head",
+      "method": "HEAD",
+      "relative": "items/caf%C3%A9%20+%20100%25.bin",
+      "request_headers": {},
+      "request_body": "",
+      "status": 200,
+      "response_headers": [
+        [
+          "last-modified",
+          "Tue, 27 Oct 2026 19:08:41 GMT"
+        ],
+        [
+          "etag",
+          "\"e8f48ef219921ae8be6dd4e03419711c\""
+        ],
+        [
+          "content-length",
+          "23"
+        ],
+        [
+          "content-type",
+          "application/x-bin"
+        ]
+      ],
+      "body": ""
+    },
+    {
+      "label": "not-modified",
+      "method": "GET",
+      "relative": "items/caf%C3%A9%20+%20100%25.bin",
+      "request_headers": {
+        "If-None-Match": "\"e8f48ef219921ae8be6dd4e03419711c\""
+      },
+      "request_body": "",
+      "status": 304,
+      "response_headers": [
+        [
+          "etag",
+          "\"e8f48ef219921ae8be6dd4e03419711c\""
+        ]
+      ],
+      "body": ""
+    },
+    {
+      "label": "create-precondition",
+      "method": "PUT",
+      "relative": "items/caf%C3%A9%20+%20100%25.bin",
+      "request_headers": {
+        "If-None-Match": "*",
+        "Content-Type": "application/octet-stream"
+      },
+      "request_body": "b3RoZXI=",
+      "status": 412,
+      "response_headers": [
+        [
+          "content-length",
+          "320"
+        ],
+        [
+          "content-type",
+          "application/xml; charset=utf-8"
+        ]
+      ],
+      "body": "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPGQ6ZXJyb3IgeG1sbnM6ZD0iREFWOiIgeG1sbnM6cz0iaHR0cDovL3NhYnJlZGF2Lm9yZy9ucyI+CiAgPHM6ZXhjZXB0aW9uPlNhYnJlXERBVlxFeGNlcHRpb25cUHJlY29uZGl0aW9uRmFpbGVkPC9zOmV4Y2VwdGlvbj4KICA8czptZXNzYWdlPkFuIElmLU5vbmUtTWF0Y2ggaGVhZGVyIHdhcyBzcGVjaWZpZWQsIGJ1dCB0aGUgRVRhZyBtYXRjaGVkIChvciAqIHdhcyBzcGVjaWZpZWQpLjwvczptZXNzYWdlPgogIDxzOmhlYWRlcj5JZi1Ob25lLU1hdGNoPC9zOmhlYWRlcj4KPC9kOmVycm9yPgo="
+    },
+    {
+      "label": "stale-precondition",
+      "method": "PUT",
+      "relative": "items/caf%C3%A9%20+%20100%25.bin",
+      "request_headers": {
+        "If-Match": "\"stale-fixture\"",
+        "Content-Type": "application/octet-stream"
+      },
+      "request_body": "b3RoZXI=",
+      "status": 412,
+      "response_headers": [
+        [
+          "etag",
+          "\"e8f48ef219921ae8be6dd4e03419711c\""
+        ],
+        [
+          "content-length",
+          "308"
+        ],
+        [
+          "content-type",
+          "application/xml; charset=utf-8"
+        ]
+      ],
+      "body": "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPGQ6ZXJyb3IgeG1sbnM6ZD0iREFWOiIgeG1sbnM6cz0iaHR0cDovL3NhYnJlZGF2Lm9yZy9ucyI+CiAgPHM6ZXhjZXB0aW9uPlNhYnJlXERBVlxFeGNlcHRpb25cUHJlY29uZGl0aW9uRmFpbGVkPC9zOmV4Y2VwdGlvbj4KICA8czptZXNzYWdlPkFuIElmLU1hdGNoIGhlYWRlciB3YXMgc3BlY2lmaWVkLCBidXQgbm9uZSBvZiB0aGUgc3BlY2lmaWVkIEVUYWdzIG1hdGNoZWQuPC9zOm1lc3NhZ2U+CiAgPHM6aGVhZGVyPklmLU1hdGNoPC9zOmhlYWRlcj4KPC9kOmVycm9yPgo="
+    },
+    {
+      "label": "missing-parent",
+      "method": "MKCOL",
+      "relative": "missing/child/",
+      "request_headers": {},
+      "request_body": "",
+      "status": 409,
+      "response_headers": [
+        [
+          "content-length",
+          "218"
+        ],
+        [
+          "content-type",
+          "application/xml; charset=utf-8"
+        ]
+      ],
+      "body": "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPGQ6ZXJyb3IgeG1sbnM6ZD0iREFWOiIgeG1sbnM6cz0iaHR0cDovL3NhYnJlZGF2Lm9yZy9ucyI+CiAgPHM6ZXhjZXB0aW9uPlNhYnJlXERBVlxFeGNlcHRpb25cQ29uZmxpY3Q8L3M6ZXhjZXB0aW9uPgogIDxzOm1lc3NhZ2U+UGFyZW50IG5vZGUgZG9lcyBub3QgZXhpc3Q8L3M6bWVzc2FnZT4KPC9kOmVycm9yPgo="
+    },
+    {
+      "label": "copy",
+      "method": "COPY",
+      "relative": "items/caf%C3%A9%20+%20100%25.bin",
+      "request_headers": {
+        "Destination": "http://127.0.0.1:18443/remote.php/dav/files/day_fixture/day-webdav-fixture-8689fa891ac14d5fb08b9e8610ecc0dc/items/copy.bin",
+        "Overwrite": "F"
+      },
+      "request_body": "",
+      "status": 201,
+      "response_headers": [
+        [
+          "content-length",
+          "0"
+        ],
+        [
+          "content-type",
+          "text/html; charset=UTF-8"
+        ]
+      ],
+      "body": ""
+    },
+    {
+      "label": "copy-precondition",
+      "method": "COPY",
+      "relative": "items/caf%C3%A9%20+%20100%25.bin",
+      "request_headers": {
+        "Destination": "http://127.0.0.1:18443/remote.php/dav/files/day_fixture/day-webdav-fixture-8689fa891ac14d5fb08b9e8610ecc0dc/items/copy.bin",
+        "Overwrite": "F"
+      },
+      "request_body": "",
+      "status": 412,
+      "response_headers": [
+        [
+          "content-length",
+          "312"
+        ],
+        [
+          "content-type",
+          "application/xml; charset=utf-8"
+        ]
+      ],
+      "body": "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPGQ6ZXJyb3IgeG1sbnM6ZD0iREFWOiIgeG1sbnM6cz0iaHR0cDovL3NhYnJlZGF2Lm9yZy9ucyI+CiAgPHM6ZXhjZXB0aW9uPlNhYnJlXERBVlxFeGNlcHRpb25cUHJlY29uZGl0aW9uRmFpbGVkPC9zOmV4Y2VwdGlvbj4KICA8czptZXNzYWdlPlRoZSBkZXN0aW5hdGlvbiBub2RlIGFscmVhZHkgZXhpc3RzLCBhbmQgdGhlIG92ZXJ3cml0ZSBoZWFkZXIgaXMgc2V0IHRvIGZhbHNlPC9zOm1lc3NhZ2U+CiAgPHM6aGVhZGVyPk92ZXJ3cml0ZTwvczpoZWFkZXI+CjwvZDplcnJvcj4K"
+    },
+    {
+      "label": "move",
+      "method": "MOVE",
+      "relative": "items/copy.bin",
+      "request_headers": {
+        "Destination": "http://127.0.0.1:18443/remote.php/dav/files/day_fixture/day-webdav-fixture-8689fa891ac14d5fb08b9e8610ecc0dc/items/moved.bin",
+        "Overwrite": "F"
+      },
+      "request_body": "",
+      "status": 201,
+      "response_headers": [
+        [
+          "etag",
+          "\"e8f48ef219921ae8be6dd4e03419711c\""
+        ],
+        [
+          "content-length",
+          "0"
+        ],
+        [
+          "content-type",
+          "text/html; charset=UTF-8"
+        ]
+      ],
+      "body": ""
+    },
+    {
+      "label": "delete",
+      "method": "DELETE",
+      "relative": "items/moved.bin",
+      "request_headers": {},
+      "request_body": "",
+      "status": 204,
+      "response_headers": [],
+      "body": ""
+    },
+    {
+      "label": "missing",
+      "method": "GET",
+      "relative": "items/missing.bin",
+      "request_headers": {},
+      "request_body": "",
+      "status": 404,
+      "response_headers": [
+        [
+          "content-length",
+          "298"
+        ],
+        [
+          "content-type",
+          "application/xml; charset=utf-8"
+        ]
+      ],
+      "body": "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPGQ6ZXJyb3IgeG1sbnM6ZD0iREFWOiIgeG1sbnM6cz0iaHR0cDovL3NhYnJlZGF2Lm9yZy9ucyI+CiAgPHM6ZXhjZXB0aW9uPlNhYnJlXERBVlxFeGNlcHRpb25cTm90Rm91bmQ8L3M6ZXhjZXB0aW9uPgogIDxzOm1lc3NhZ2U+RmlsZSB3aXRoIG5hbWUgL2RheS13ZWJkYXYtZml4dHVyZS04Njg5ZmE4OTFhYzE0ZDVmYjA4YjllODYxMGVjYzBkYy9pdGVtcy9taXNzaW5nLmJpbiBjb3VsZCBub3QgYmUgbG9jYXRlZDwvczptZXNzYWdlPgo8L2Q6ZXJyb3I+Cg=="
+    },
+    {
+      "label": "stat",
+      "method": "PROPFIND",
+      "relative": "items/caf%C3%A9%20+%20100%25.bin",
+      "request_headers": {
+        "Depth": "0",
+        "Content-Type": "application/xml; charset=utf-8"
+      },
+      "request_body": "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48ZDpwcm9wZmluZCB4bWxuczpkPSJEQVY6Ij48ZDpwcm9wPjxkOnJlc291cmNldHlwZS8+PGQ6Z2V0ZXRhZy8+PGQ6Z2V0Y29udGVudGxlbmd0aC8+PGQ6Z2V0bGFzdG1vZGlmaWVkLz48ZDpkaXNwbGF5bmFtZS8+PGQ6c3VwcG9ydGVkLXJlcG9ydC1zZXQvPjwvZDpwcm9wPjwvZDpwcm9wZmluZD4=",
+      "status": 207,
+      "response_headers": [
+        [
+          "dav",
+          "1, 3, extended-mkcol, access-control, calendarserver-principal-property-search, nc-paginate, nextcloud-checksum-update, nc-calendar-search, nc-enable-birthday-calendar, 2"
+        ],
+        [
+          "content-length",
+          "1217"
+        ],
+        [
+          "content-type",
+          "application/xml; charset=utf-8"
+        ]
+      ],
+      "body": "PD94bWwgdmVyc2lvbj0iMS4wIj8+CjxkOm11bHRpc3RhdHVzIHhtbG5zOmQ9IkRBVjoiIHhtbG5zOnM9Imh0dHA6Ly9zYWJyZWRhdi5vcmcvbnMiIHhtbG5zOm9jPSJodHRwOi8vb3duY2xvdWQub3JnL25zIiB4bWxuczpuYz0iaHR0cDovL25leHRjbG91ZC5vcmcvbnMiPjxkOnJlc3BvbnNlPjxkOmhyZWY+L3JlbW90ZS5waHAvZGF2L2ZpbGVzL2RheV9maXh0dXJlL2RheS13ZWJkYXYtZml4dHVyZS04Njg5ZmE4OTFhYzE0ZDVmYjA4YjllODYxMGVjYzBkYy9pdGVtcy9jYWYlYzMlYTklMjAlMmIlMjAxMDAlMjUuYmluPC9kOmhyZWY+PGQ6cHJvcHN0YXQ+PGQ6cHJvcD48ZDpyZXNvdXJjZXR5cGUvPjxkOmdldGV0YWc+JnF1b3Q7ZThmNDhlZjIxOTkyMWFlOGJlNmRkNGUwMzQxOTcxMWMmcXVvdDs8L2Q6Z2V0ZXRhZz48ZDpnZXRjb250ZW50bGVuZ3RoPjIzPC9kOmdldGNvbnRlbnRsZW5ndGg+PGQ6Z2V0bGFzdG1vZGlmaWVkPlR1ZSwgMjcgT2N0IDIwMjYgMTk6MDg6NDEgR01UPC9kOmdldGxhc3Rtb2RpZmllZD48ZDpkaXNwbGF5bmFtZT5jYWbDqSArIDEwMCUuYmluPC9kOmRpc3BsYXluYW1lPjxkOnN1cHBvcnRlZC1yZXBvcnQtc2V0PjxkOnN1cHBvcnRlZC1yZXBvcnQ+PGQ6cmVwb3J0PjxkOmV4cGFuZC1wcm9wZXJ0eS8+PC9kOnJlcG9ydD48L2Q6c3VwcG9ydGVkLXJlcG9ydD48ZDpzdXBwb3J0ZWQtcmVwb3J0PjxkOnJlcG9ydD48ZDpwcmluY2lwYWwtbWF0Y2gvPjwvZDpyZXBvcnQ+PC9kOnN1cHBvcnRlZC1yZXBvcnQ+PGQ6c3VwcG9ydGVkLXJlcG9ydD48ZDpyZXBvcnQ+PGQ6cHJpbmNpcGFsLXByb3BlcnR5LXNlYXJjaC8+PC9kOnJlcG9ydD48L2Q6c3VwcG9ydGVkLXJlcG9ydD48ZDpzdXBwb3J0ZWQtcmVwb3J0PjxkOnJlcG9ydD48ZDpwcmluY2lwYWwtc2VhcmNoLXByb3BlcnR5LXNldC8+PC9kOnJlcG9ydD48L2Q6c3VwcG9ydGVkLXJlcG9ydD48ZDpzdXBwb3J0ZWQtcmVwb3J0PjxkOnJlcG9ydD48b2M6ZmlsdGVyLWNvbW1lbnRzLz48L2Q6cmVwb3J0PjwvZDpzdXBwb3J0ZWQtcmVwb3J0PjxkOnN1cHBvcnRlZC1yZXBvcnQ+PGQ6cmVwb3J0PjxvYzpmaWx0ZXItZmlsZXMvPjwvZDpyZXBvcnQ+PC9kOnN1cHBvcnRlZC1yZXBvcnQ+PC9kOnN1cHBvcnRlZC1yZXBvcnQtc2V0PjwvZDpwcm9wPjxkOnN0YXR1cz5IVFRQLzEuMSAyMDAgT0s8L2Q6c3RhdHVzPjwvZDpwcm9wc3RhdD48L2Q6cmVzcG9uc2U+PC9kOm11bHRpc3RhdHVzPgo="
+    },
+    {
+      "label": "range",
+      "method": "GET",
+      "relative": "items/caf%C3%A9%20+%20100%25.bin",
+      "request_headers": {
+        "Range": "bytes=1-4",
+        "If-Range": "\"e8f48ef219921ae8be6dd4e03419711c\""
+      },
+      "request_body": "",
+      "status": 206,
+      "response_headers": [
+        [
+          "last-modified",
+          "Tue, 27 Oct 2026 19:08:41 GMT"
+        ],
+        [
+          "etag",
+          "\"e8f48ef219921ae8be6dd4e03419711c\""
+        ],
+        [
+          "content-length",
+          "4"
+        ],
+        [
+          "content-range",
+          "bytes 1-4/23"
+        ],
+        [
+          "content-type",
+          "application/x-bin"
+        ]
+      ],
+      "body": "eW50aA=="
+    },
+    {
+      "label": "range-restart",
+      "method": "GET",
+      "relative": "items/caf%C3%A9%20+%20100%25.bin",
+      "request_headers": {
+        "Range": "bytes=1-4",
+        "If-Range": "\"stale-fixture\""
+      },
+      "request_body": "",
+      "status": 200,
+      "response_headers": [
+        [
+          "last-modified",
+          "Tue, 27 Oct 2026 19:08:41 GMT"
+        ],
+        [
+          "etag",
+          "\"e8f48ef219921ae8be6dd4e03419711c\""
+        ],
+        [
+          "content-length",
+          "23"
+        ],
+        [
+          "content-type",
+          "application/x-bin"
+        ]
+      ],
+      "body": "c3ludGhldGljIGRhdiBwYXlsb2FkAP8="
+    }
+  ]
+}

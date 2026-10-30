@@ -1,0 +1,28 @@
+name: ci
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 6 * * *"
+permissions:
+  contents: read
+jobs:
+  ci:
+    uses: daybrite/actions/.github/workflows/daylib.yml@v1
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
+    secrets: inherit
+    with:
+      # Requires the accompanying HTTP DAV-method additions in Day main.
+      day-deps: main
+      publish: false
+      targets: all
+      scripts: dayscript/demo.yaml
+      feature-sets: --features reqwest,demo-server
+      script-setup: source ../scripts/ci-fixture.sh
+      target-setup: |
+        ios-uikit: xcrun simctl list pairs --json | jq -r '.pairs | keys[]' | while IFS= read -r pair; do xcrun simctl unpair "$pair"; done

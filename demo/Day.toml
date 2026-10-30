@@ -1,0 +1,23 @@
+# The Day project manifest: https://daybrite.dev/docs/reference/cli#the-conventional-project
+# `name` and `version` come from Cargo.toml.
+schema = 1
+
+[app]
+id = "dev.daybrite.webdavdemo"
+title = "WebDAV Explorer"
+build = 1
+targets = ["macos-appkit", "ios-uikit", "android-material", "linux-gtk", "linux-qt", "windows-winui", "harmony-arkui", "web-dom"]
+
+# The window's size and minimum size in points, for every platform with resizable windows.
+[window]
+width = 960
+height = 820
+min_width = 320
+min_height = 400
+
+# Report which element ids the dayscripts reach: https://daybrite.dev/docs/how-to/dayscript
+[dayscript.coverage]
+enabled = true
+
+[android]
+cleartext-domains = ["127.0.0.1"]
